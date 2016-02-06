@@ -24,7 +24,7 @@ public class Mathematica
 		ADVANCED.put("sin", 3);
 		ADVANCED.put("cos", 3);
 		ADVANCED.put("tan", 3);
-		ADVANCED.put("cotg", 3);
+		ADVANCED.put("cotan", 3);
     }
 	private Stack<String> tokens;
 	private Stack<Double> result;
@@ -168,10 +168,10 @@ public class Mathematica
 		return 0;
 	}
 	
-	private double AdvCalc(String func, Stack<Double> stack) throws WrongExpression {
+	private double AdvCalc(String function, Stack<Double> stack) throws WrongExpression {
 		Double firstoperand, secondoperand = null;
 		Double result, log1, log2, logResult = null;
-		switch (func) {
+		switch (function) {
 			case "+":
 				firstoperand = stack.pop();
 				secondoperand = stack.pop();
@@ -231,7 +231,7 @@ public class Mathematica
 				result = Math.tan(firstoperand);
 				return result;
 				
-			case "cotg":
+			case "cotan":
 				firstoperand = stack.pop();
 				result = 1.0 / Math.tan(firstoperand);
 				return result;
